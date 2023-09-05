@@ -1,5 +1,5 @@
 import openai
-import streamlit_chat as st
+import streamlit as st
 
 st.title("Deloitte Consultant GPT")
 
