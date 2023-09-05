@@ -1,6 +1,6 @@
 import openai
 import streamlit as st
-
+import streamlit_chat
 st.title("Deloitte Consultant GPT")
 
 openai.api_key = "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"
