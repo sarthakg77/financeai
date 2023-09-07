@@ -4,7 +4,15 @@ from streamlit_chat import message
 
 st.title("Deloitte Consultant GPT")
 
-openai.api_key = "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"
+# Move the OpenAI API key input to the sidebar
+with st.sidebar:
+    my_key = st.text_input(label=":key: OpenAI Key:", 
+                           help="Please ensure you have an OpenAI API account with credit. ChatGPT Plus subscription does not include API access.",
+                           type="password")
+
+# Check if the key is provided and set it for openai
+if my_key:
+    openai.api_key = my_key
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-3.5-turbo"
@@ -15,7 +23,7 @@ if "messages" not in st.session_state:
         {
             "role": "assistant",
             "content": ("Hello! I'm your virtual Deloitte management consultant. "
-                        "Please share your business concerns, and I'll analyze them ")
+                        "Please share your business concerns, and I'll analyze them.")
         }
     ]
 
